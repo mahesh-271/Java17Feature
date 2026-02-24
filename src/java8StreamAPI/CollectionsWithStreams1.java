@@ -17,7 +17,6 @@ public class CollectionsWithStreams1 {
         Arrays.sort ( str2Array );
         return Arrays.equals ( str1Array, str2Array );
     }
-
     public static void main(String[] args) {
 
         //write a program to check strings are anagrams or not
@@ -37,9 +36,7 @@ public class CollectionsWithStreams1 {
                         .toList () );
         System.out.println ( "The Two Strings are  : " + checkAnagrams );
 
-
         //  remove duplicates from list
-
         List<String> listValues = List.of ( "apple", "orange", "banana", "apple", "orange" );
 
         listValues.stream ()
@@ -50,19 +47,20 @@ public class CollectionsWithStreams1 {
 
         List<Integer> numbersList = List.of ( 10, 22, 11, 43, 12, 134, 112 );
 
-        List<Integer> fliteringNumbers = numbersList.stream ()
+        List<Integer> filteringNumbers = numbersList.stream ()
                 .map ( num -> String.valueOf ( num ) )
                 .filter ( val -> val.startsWith ( "1" ) )
                 .mapToInt ( val -> Integer.parseInt ( val ) )
                 .boxed ()
                 .toList ();
 
-
         List<Integer> startsWithOne = numbersList.stream ()
                 .filter ( val -> String.valueOf ( val ).startsWith ( "1" ) )
                 .toList ();
 
-        System.out.println ( fliteringNumbers );
+        System.out.println ( startsWithOne );
+
+        System.out.println ( filteringNumbers );
 
         // join two two streams
 
@@ -79,7 +77,6 @@ public class CollectionsWithStreams1 {
 
         System.out.println ( "Prime numbers are : " + isResult );
     }
-
     //check if list contains prime number or not
 
     public static boolean isPrime(int num) {

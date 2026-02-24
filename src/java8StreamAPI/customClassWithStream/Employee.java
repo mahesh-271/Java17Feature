@@ -30,22 +30,18 @@ public class Employee {
         Employee employee3= new Employee (4, "Cena", 90000);
         Employee employee4= new Employee (6, "Garry", 90000);
 
-
         List<Employee> employees = Arrays.asList ( employee, employee1 , employee2,employee3,employee4,employee5 );
 
        List<Employee> emplist =  employees.stream ()
                 .toList ();
-
        //filter employees based on salary
 
         //mphasis interview question
-
         Map<String , Employee> employeesMap = employees.stream ()
                 .collect ( Collectors.groupingBy (val -> val.employeeName,
                         Collectors.collectingAndThen( Collectors.maxBy ( Comparator.comparing ( emp -> emp.employeeSalary ) )
                                 ,Optional::get)));
    //     employeesMap.forEach ( (key , val) -> System.out.println (key + " " + val) );
-
 
     }
 }

@@ -27,7 +27,6 @@ public class CollectionsWithStream3 {
 
         List<Integer> integers = List.of ( 12, 332, 11, 1122, 22, 123, 3, 321, 133212, 3, 3, 32, 2, 23, 3, 32233, 3, 44, 22, 2, 2, 3, 3, 223 );
 
-
         List<Integer> startsWith3 = integers.stream ()
                 .filter ( val -> String.valueOf ( val ).startsWith ( "3" ) )
                 .toList ();

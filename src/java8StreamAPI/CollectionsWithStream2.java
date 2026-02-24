@@ -22,8 +22,7 @@ public class CollectionsWithStream2 {
 
         System.out.println ( "Resulted List : " + resultedList );
 
-        //pallindrom or not
-
+        //pallindrome or not
 
         String str = "madam";
 
@@ -83,7 +82,6 @@ public class CollectionsWithStream2 {
                 .collect ( Collectors.joining ( "" ) );
 
         System.out.println (withoutDuplicateElements);
-
 
         List<String> stringList1 = List.of ( "Apple", "Banana", "Orange", "Orange" );
 

@@ -1,7 +1,8 @@
 package java8StreamAPI;
 
-import java.util.Arrays;
-import java.util.IntSummaryStatistics;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ArraysWithStream {
 
@@ -10,9 +11,6 @@ public class ArraysWithStream {
         int arr[] = {1, 3, 4, 66, 43, 23, 5, 233, 6543, 54};
 
         //Basic Stream Intermediate Opearations :
-
-        // summary statistics provides methods that we can use for our basic opearations
-        //In this class using only for IntSummaryStatistics , and same way use it for Long , Double , ......
 
         IntSummaryStatistics summaryStatistics =
                 Arrays.stream ( arr )
@@ -28,6 +26,40 @@ public class ArraysWithStream {
 
         summaryStatistics.accept ( 439849 );
 
-        System.out.println ( "Total count after accepting the values is  : " + summaryStatistics.getCount () );
+      //  System.out.println ( "Total count after accepting the values is  : " + summaryStatistics.getCount () );
+
+        String[]namesArray = {"mahesh","ramesh"};
+
+        Arrays.stream(namesArray)
+                .forEach ( input -> {
+                   Character nonRepeatingCharacter =  input.chars ()
+                            .mapToObj ( val -> (char)val )
+                            .collect( Collectors.groupingBy ( Function.identity(), LinkedHashMap::new , Collectors.counting ()))
+                            .entrySet ()
+                            .stream ()
+                            .filter(val -> val.getValue ()==1)
+                            .map( Map.Entry::getKey)
+                            .findFirst ()
+                            .orElse ( null );
+
+                 //   System.out.println ("First non repeating character of" + input + " is " + nonRepeatingCharacter);
+                } );
+
+        //First repeated character in a given array
+
+        String [] arrayNames = {"mahesh", "abcc","ghighgjeif"};
+
+        Set<Character> set = new HashSet<> ();
+
+        Arrays.stream (arrayNames)
+                .forEach ( val -> {
+                    Character firstRepeatingCharacter = val.chars ()
+                            .mapToObj (ip -> (char) ip )
+                            .filter ( val1 -> !set.add ( val1 ))
+                            .findFirst ()
+                            .orElse ( null );
+
+                    System.out.println ("first non repeating character is : " + firstRepeatingCharacter);
+                });
     }
 }
