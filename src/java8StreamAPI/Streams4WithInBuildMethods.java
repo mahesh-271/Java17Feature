@@ -46,12 +46,5 @@ public class Streams4WithInBuildMethods {
 //        System.out.println ("Total Avearage is : " + values.getAverage ());
 //        System.out.println ("Total count is : " + values.getCount ());
 //        System.out.println ("Total sum is : " + values.getSum ());
-
-
-
-
-
-
-
     }
 }
